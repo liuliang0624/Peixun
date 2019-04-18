@@ -9,9 +9,9 @@ import com.yyjz.icop.pubapp.platform.vo.SuperSubVO;
  * <p>@author ICOP  2019-04-15</p>
  * <p>注意：该类为EquipmentTenderApplicationSubEntity对应的VO类，继承SuperMainVO或者SuperSubVO </p>
  */
-public class EquipmentTenderApplicationSubVO extends SuperSubVO{	
+public class EquipmentTenderApplicationSubVO extends SuperSubVO{
 	private static final long serialVersionUID = 1L;
-	
+
 	@Display("主键")
 	private String id ;
 	@Display("设备名称")
@@ -26,7 +26,7 @@ public class EquipmentTenderApplicationSubVO extends SuperSubVO{
 	private String specification ;
 	@Display("单价")
 	private BigDecimal unitPrice ;
-	
+
 	public String getId() {
 		return this.id;
 	}
@@ -69,5 +69,5 @@ public class EquipmentTenderApplicationSubVO extends SuperSubVO{
 	public void setUnitPrice(BigDecimal unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	
+
 }

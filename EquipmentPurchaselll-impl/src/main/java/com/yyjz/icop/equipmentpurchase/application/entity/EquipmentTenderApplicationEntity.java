@@ -5,6 +5,9 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+
+import com.yyjz.icop.refer.annotation.DefdocDeserialTransfer;
+import com.yyjz.icop.refer.annotation.DefdocSerialTransfer;
 import org.hibernate.annotations.GenericGenerator;
 import com.yyjz.icop.refer.annotation.Refer;
 import java.util.List;
@@ -27,7 +30,7 @@ import com.yyjz.icop.pubapp.platform.entity.SuperMainEntity;
 @Table(name="equipment_tender_applicationlll")
 @Refer(referCode = "EquipmentTender_Applicationlll", id = "id", name = "tenderName", code = "billCode")
 @Display("设备集中采购招标申请（主表）")
-public class EquipmentTenderApplicationEntity extends SuperMainEntity{	
+public class EquipmentTenderApplicationEntity extends SuperMainEntity{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -89,9 +92,12 @@ public class EquipmentTenderApplicationEntity extends SuperMainEntity{
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
+	@DefdocSerialTransfer(typeCode = "rentalMethodlll")  //枚举注解 位置https://devk8s.yonyouccs.com/icop-share-frontend
+	//通用档案-通用档案定义-共享中心
 	public String getRentalMethod() {
 		return this.rentalMethod;
 	}
+	@DefdocDeserialTransfer
 	public void setRentalMethod(String rentalMethod) {
 		this.rentalMethod = rentalMethod;
 	}
@@ -113,5 +119,5 @@ public class EquipmentTenderApplicationEntity extends SuperMainEntity{
 	public void setTenderName(String tenderName) {
 		this.tenderName = tenderName;
 	}
-	
+
 }

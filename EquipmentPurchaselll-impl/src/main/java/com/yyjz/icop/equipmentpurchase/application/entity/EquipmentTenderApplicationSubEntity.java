@@ -23,7 +23,7 @@ import com.yyjz.icop.pubapp.platform.entity.SuperSubEntity;
 @Entity
 @Table(name="equipment_tender_applicationlll_sub")
 @Display("设备清单（子表）")
-public class EquipmentTenderApplicationSubEntity extends SuperSubEntity{	
+public class EquipmentTenderApplicationSubEntity extends SuperSubEntity{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -92,5 +92,5 @@ public class EquipmentTenderApplicationSubEntity extends SuperSubEntity{
 	public void setUnitPrice(BigDecimal unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	
+
 }

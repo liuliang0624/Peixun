@@ -79,5 +79,30 @@
 			<artifactId>jackson-core</artifactId>
 			<version>2.8.6</version>
 		</dependency>
+
+           <!--//元数据关联错误加入依赖包-->
+		<dependency>
+			<groupId>com.yyjz</groupId>
+			<artifactId>icop-pubapp-application</artifactId>
+			<version>1.5.61-RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.yyjz</groupId>
+					<artifactId>icop-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.yyjz.icop.metadata</groupId>
+					<artifactId>icop-metadata-sdk</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.yyjz.icop.metadata</groupId>
+			<artifactId>icop-metadata-sdk</artifactId>
+			<version>1.6.8-release</version>
+		</dependency>
+
 	</dependencies>
+
+
 </project>

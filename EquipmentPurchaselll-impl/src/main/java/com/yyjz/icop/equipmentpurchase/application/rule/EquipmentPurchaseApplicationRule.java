@@ -8,12 +8,9 @@ public class EquipmentPurchaseApplicationRule implements IcopRule<EquipmentTende
     @Override
     public void process(EquipmentTenderApplicationEntity[] entitys) {
         EquipmentTenderApplicationEntity entity = entitys[0];
-        String myName = "小刘";
+        String myName = "二公司刘亮亮";
         entity.setMyName(myName);
     }
 
-    @Override
-    public int order() {
-        return 10000;
-    }
+
 }

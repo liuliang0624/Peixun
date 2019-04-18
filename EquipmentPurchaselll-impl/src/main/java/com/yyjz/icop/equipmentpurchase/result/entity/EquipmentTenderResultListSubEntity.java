@@ -22,7 +22,7 @@ import com.yyjz.icop.pubapp.platform.entity.SuperSubEntity;
  */
 @Entity
 @Table(name="equipment_tender_result_list_sub")
-@Display("设备j结果清单（子表）")
+@Display("设备结果清单（子表）")
 public class EquipmentTenderResultListSubEntity extends SuperSubEntity{	
 	private static final long serialVersionUID = 1L;
 	@Id

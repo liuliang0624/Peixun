@@ -10,9 +10,9 @@ import com.yyjz.icop.pubapp.platform.vo.SuperMainVO;
  * <p>@author ICOP  2019-04-15</p>
  * <p>注意：该类为EquipmentTenderApplicationEntity对应的VO类，继承SuperMainVO或者SuperSubVO </p>
  */
-public class EquipmentTenderApplicationVO extends SuperMainVO{	
+public class EquipmentTenderApplicationVO extends SuperMainVO{
 	private static final long serialVersionUID = 1L;
-	
+
 	@Display("主键")
 	private String id ;
 	@Display("申请编号")
@@ -31,7 +31,7 @@ public class EquipmentTenderApplicationVO extends SuperMainVO{
 	private String tenderMethod ;
 	@Display("集采招标名称")
 	private String tenderName ;
-	
+
 	public String getId() {
 		return this.id;
 	}
@@ -86,5 +86,5 @@ public class EquipmentTenderApplicationVO extends SuperMainVO{
 	public void setTenderName(String tenderName) {
 		this.tenderName = tenderName;
 	}
-	
+
 }
