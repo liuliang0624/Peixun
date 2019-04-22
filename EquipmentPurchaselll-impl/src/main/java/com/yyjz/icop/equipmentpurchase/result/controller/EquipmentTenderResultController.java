@@ -1,5 +1,8 @@
 package com.yyjz.icop.equipmentpurchase.result.controller;
 
+import com.yyjz.icop.pubapp.platform.context.AppContext;
+import com.yyjz.icop.support.api.service.IRegConfigAPIService;
+import com.yyjz.icop.support.vo.RegConfigVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -28,9 +31,11 @@ public abstract class EquipmentTenderResultController {
 	protected IEquipmentTenderResultService equipmentTenderResultService;
 	@Autowired
 	protected IEquipmentTenderResultQueryService equipmentTenderResultQueryService;
+	@Autowired
+	protected IRegConfigAPIService iRegConfigAPIService; //注入参数接口
 
 	/**
-	 * 新增保存
+	 * 新增保存时
 	 * 
 	 * @param equipmentTenderResultVO
 	 * @return
@@ -40,11 +45,12 @@ public abstract class EquipmentTenderResultController {
 	public JsonBackData insert(@RequestBody EquipmentTenderResultVO equipmentTenderResultVO) {
 		JsonBackData back = new JsonBackData();
 		try {
+			RegConfigVO findByCode=iRegConfigAPIService.findByCode(AppContext.getCurCompanyId(),"SeveralCompanies" );//抛异常
+			equipmentTenderResultVO.setParameter(findByCode.getRegValue()); //给参数赋值
 			EquipmentTenderResultVO backVO = equipmentTenderResultService.insert(equipmentTenderResultVO);
-
 			back.setBackData(backVO);
 			back.setBackMsg("新增成功");
-		} catch (BusinessException e) {
+		} catch (Exception e) {
 			back.setSuccess(false);
 			back.setBackMsg("新增失败:"+e.getMessage());
 		}

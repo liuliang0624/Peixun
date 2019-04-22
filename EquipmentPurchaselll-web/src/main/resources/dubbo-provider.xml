@@ -14,7 +14,7 @@
 	<!-- 使用zookeeper作为服务注册中心 -->
 	<dubbo:registry protocol="zookeeper" address="${zookeeper.addr}" />
 	<!-- 服务配置，用于暴露一个服务，定义服务的元信息，一个服务可以用多个协议暴露，一个服务也可以注册到多个注册中心 -->
-	<!-- <dubbo:service ref="projectAPIService" interface="com.yyjz.icop.share.api.service.ProjectAPIService" /> -->
+	 <dubbo:service ref="projectAPIService" interface="com.yyjz.icop.equipmentpurchase.application.service.IEquipmentTenderApplicationService" />
 	<!-- 如需使用dubbo服务监控必须加入该配置 -->
 	<dubbo:monitor protocol="registry"/>
 </beans>

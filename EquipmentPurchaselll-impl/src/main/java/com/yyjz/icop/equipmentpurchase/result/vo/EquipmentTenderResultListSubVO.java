@@ -1,6 +1,8 @@
 package com.yyjz.icop.equipmentpurchase.result.vo;
 
 import java.math.BigDecimal;
+
+import com.yyjz.icop.excel.annotation.ExcelField;
 import com.yyjz.icop.metadata.core.annotations.Display;
 import com.yyjz.icop.pubapp.platform.vo.SuperSubVO;
 
@@ -33,12 +35,14 @@ public class EquipmentTenderResultListSubVO extends SuperSubVO{
 	public void setId(String id) {
 		this.id = id;
 	}
+	@ExcelField(title = "设备名称" ,importCheckType=2,sort = 1)
 	public String getEquipmentName() {
 		return this.equipmentName;
 	}
 	public void setEquipmentName(String equipmentName) {
 		this.equipmentName = equipmentName;
 	}
+	@ExcelField(title = "数量" ,importCheckType=2,sort = 3)
 	public BigDecimal getNumber() {
 		return this.number;
 	}
@@ -57,12 +61,14 @@ public class EquipmentTenderResultListSubVO extends SuperSubVO{
 	public void setPid(String pid) {
 		this.pid = pid;
 	}
+	@ExcelField(title = "规格型号" ,importCheckType=2,sort = 2)
 	public String getSpecification() {
 		return this.specification;
 	}
 	public void setSpecification(String specification) {
 		this.specification = specification;
 	}
+	@ExcelField(title = "单价" ,importCheckType=2,sort = 4)
 	public BigDecimal getUnitPrice() {
 		return this.unitPrice;
 	}

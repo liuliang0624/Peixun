@@ -3,6 +3,7 @@ package com.yyjz.icop.equipmentpurchase.application.vo;
 import java.util.List;
 import java.util.ArrayList;
 import com.yyjz.icop.metadata.core.annotations.Display;
+import com.yyjz.icop.pubapp.platform.vo.SuperExtendMainVO;
 import com.yyjz.icop.pubapp.platform.vo.SuperMainVO;
 
 /**
@@ -10,7 +11,7 @@ import com.yyjz.icop.pubapp.platform.vo.SuperMainVO;
  * <p>@author ICOP  2019-04-15</p>
  * <p>注意：该类为EquipmentTenderApplicationEntity对应的VO类，继承SuperMainVO或者SuperSubVO </p>
  */
-public class EquipmentTenderApplicationVO extends SuperMainVO{
+public class EquipmentTenderApplicationVO extends SuperExtendMainVO {
 	private static final long serialVersionUID = 1L;
 
 	@Display("主键")

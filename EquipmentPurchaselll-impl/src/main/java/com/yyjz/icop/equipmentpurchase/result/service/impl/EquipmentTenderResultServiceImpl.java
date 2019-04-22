@@ -3,6 +3,7 @@ package com.yyjz.icop.equipmentpurchase.result.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.yyjz.icop.excel.ImportExcel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,4 +80,5 @@ public abstract class EquipmentTenderResultServiceImpl implements IEquipmentTend
 		}
 	}
 
+	/*public abstract List<EquipmentTenderResultVO> importExcel(ImportExcel importExcel);  //加入方法抽象*/
 }

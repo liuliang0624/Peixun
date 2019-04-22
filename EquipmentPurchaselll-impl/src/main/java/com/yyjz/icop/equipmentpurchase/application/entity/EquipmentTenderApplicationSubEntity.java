@@ -5,6 +5,8 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+
+import com.yyjz.icop.pubapp.platform.entity.SuperExtendSubEntity;
 import org.hibernate.annotations.GenericGenerator;
 import java.math.BigDecimal;
 import javax.persistence.ManyToOne;
@@ -23,7 +25,7 @@ import com.yyjz.icop.pubapp.platform.entity.SuperSubEntity;
 @Entity
 @Table(name="equipment_tender_applicationlll_sub")
 @Display("设备清单（子表）")
-public class EquipmentTenderApplicationSubEntity extends SuperSubEntity{
+public class EquipmentTenderApplicationSubEntity extends SuperExtendSubEntity {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(generator = "system-uuid")

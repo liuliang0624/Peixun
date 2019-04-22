@@ -2,6 +2,7 @@ package com.yyjz.icop.equipmentpurchase.application.vo;
 
 import java.math.BigDecimal;
 import com.yyjz.icop.metadata.core.annotations.Display;
+import com.yyjz.icop.pubapp.platform.vo.SuperExtendSubVO;
 import com.yyjz.icop.pubapp.platform.vo.SuperSubVO;
 
 /**
@@ -9,7 +10,7 @@ import com.yyjz.icop.pubapp.platform.vo.SuperSubVO;
  * <p>@author ICOP  2019-04-15</p>
  * <p>注意：该类为EquipmentTenderApplicationSubEntity对应的VO类，继承SuperMainVO或者SuperSubVO </p>
  */
-public class EquipmentTenderApplicationSubVO extends SuperSubVO{
+public class EquipmentTenderApplicationSubVO extends SuperExtendSubVO {
 	private static final long serialVersionUID = 1L;
 
 	@Display("主键")

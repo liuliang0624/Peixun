@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
+import com.yyjz.icop.pubapp.platform.entity.SuperExtendMainEntity;
 import com.yyjz.icop.refer.annotation.DefdocDeserialTransfer;
 import com.yyjz.icop.refer.annotation.DefdocSerialTransfer;
 import org.hibernate.annotations.GenericGenerator;
@@ -30,7 +31,7 @@ import com.yyjz.icop.pubapp.platform.entity.SuperMainEntity;
 @Table(name="equipment_tender_applicationlll")
 @Refer(referCode = "EquipmentTender_Applicationlll", id = "id", name = "tenderName", code = "billCode")
 @Display("设备集中采购招标申请（主表）")
-public class EquipmentTenderApplicationEntity extends SuperMainEntity{
+public class EquipmentTenderApplicationEntity extends SuperExtendMainEntity {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(generator = "system-uuid")
@@ -119,5 +120,20 @@ public class EquipmentTenderApplicationEntity extends SuperMainEntity{
 	public void setTenderName(String tenderName) {
 		this.tenderName = tenderName;
 	}
+  /*//自定义渲染方法
+	public String tenderMethodHanhua(String str){
+		if (str == "openTender") {
+			return "公开招标";
+		}
+		else if (str == "InvitationTender") {
+			return "邀请招标";
+		}
+		else if (str == "negotiation") {
+			return "竞争性谈判";        }
+		else {
+			return null;
+		}
+
+	}*/
 
 }

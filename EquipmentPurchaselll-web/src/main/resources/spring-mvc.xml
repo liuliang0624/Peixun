@@ -28,7 +28,8 @@
 				<constructor-arg value="UTF-8" />
 			</bean>
 			<!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true -->
-			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+			<bean class="com.yyjz.icop.pubapp.platform.extendfield.IcopExtSegment2HttpMessageConverter">
+				<!--如果要做元数据扩展 此处修改配置-->
 				<property name="prettyPrint" value="true" />
 				<property name="supportedMediaTypes">
                     <list>
