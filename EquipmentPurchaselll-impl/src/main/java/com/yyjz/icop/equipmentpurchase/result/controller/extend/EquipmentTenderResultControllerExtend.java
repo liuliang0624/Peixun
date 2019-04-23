@@ -132,7 +132,6 @@ public class EquipmentTenderResultControllerExtend extends EquipmentTenderResult
         try {
             /*导出的时候的起始列跟表格编号 都是以0开始，3表示从第4行开始解析*/
             ImportExcel importExcel = new ImportExcel(file, 3, 0);
-
             List<EquipmentTenderResultListSubVO> exportList = equipmentTenderResultServiceExtend.importExcel(importExcel);
             back.setBackData(exportList);
             back.setSuccess(true);

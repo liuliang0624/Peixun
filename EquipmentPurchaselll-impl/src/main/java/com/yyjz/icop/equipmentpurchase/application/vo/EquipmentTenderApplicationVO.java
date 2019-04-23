@@ -2,6 +2,8 @@ package com.yyjz.icop.equipmentpurchase.application.vo;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import com.yyjz.icop.excel.annotation.ExcelField;
 import com.yyjz.icop.metadata.core.annotations.Display;
 import com.yyjz.icop.pubapp.platform.vo.SuperExtendMainVO;
 import com.yyjz.icop.pubapp.platform.vo.SuperMainVO;
@@ -51,24 +53,28 @@ public class EquipmentTenderApplicationVO extends SuperExtendMainVO {
 	public void setEditTable(List<EquipmentTenderApplicationSubVO> editTable) {
 		this.editTable = editTable;
 	}
+	@ExcelField(title = "我的名字" ,sort = 1)  //导出注解
 	public String getMyName() {
 		return this.myName;
 	}
 	public void setMyName(String myName) {
 		this.myName = myName;
 	}
+	@ExcelField(title = "注解" ,sort = 1)  //导出注解
 	public String getRemarks() {
 		return this.remarks;
 	}
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
+	@ExcelField(title = "租赁方法" ,sort = 1)  //导出注解
 	public String getRentalMethod() {
 		return this.rentalMethod;
 	}
 	public void setRentalMethod(String rentalMethod) {
 		this.rentalMethod = rentalMethod;
 	}
+	@ExcelField(title = "集采区域" ,sort = 1)  //导出注解
 	public String getTenderArea() {
 		return this.tenderArea;
 	}

@@ -204,7 +204,7 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             sql.append(conditionForQuery);
             // 增加是否流标筛选
 
-            //   sql.append(" AND tenderArea ","河南" );
+
 
           /* sql.append(commonService.getAllChildrenCompanyForSql(companyId));
             sql.append(" AND bill_state=3 ");*/
