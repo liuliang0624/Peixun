@@ -167,16 +167,17 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             // 查找 - 未删除的数据
             List<SearchItem> itemList = new ArrayList<SearchItem>();
             SearchItem busiStateItem = new SearchItem();
-            busiStateItem.setField("dr");
-            busiStateItem.setCompare(Compare.EQ.name());
-            busiStateItem.setFieldtype(FieldType.INTEGER.name());
-            busiStateItem.setData(0);
+            SearchItem busiStateItems = new SearchItem();
+            busiStateItems.setField("dr");
+            busiStateItems.setCompare(Compare.EQ.name());
+            busiStateItems.setFieldtype(FieldType.INTEGER.name());
+            busiStateItems.setData(0);
+            itemList.add(busiStateItems);
             //查找 -集中采购区域是前天传参tenderArea的区域  拼接查询
             busiStateItem.setField("tender_area");
             busiStateItem.setCompare(Compare.EQ.name());
             busiStateItem.setFieldtype(FieldType.STRING.name());
             busiStateItem.setData(tenderArea);
-
             itemList.add(busiStateItem);
 
             // 处理检索字段
@@ -198,7 +199,7 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             String conditionForQuery = queryFieldResult.getCondition();
             String order = queryFieldResult.getOrder();
             Pageable pageable = new PageRequest(querySchema.getPageNumber(), querySchema.getPageSize());
-
+            String sqls = "";
             SqlBuilder sql = new SqlBuilder();
             sql.append(conditionForQuery);
             // 增加是否流标筛选
@@ -211,7 +212,8 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             Page<EquipmentTenderApplicationEntity> dataPage = pageQuery.query(EquipmentTenderApplicationEntity.class, pageable,
                     conditionForQuery, null);
 
-
+           /* Page<EquipmentTenderApplicationEntity> dataPage = pageQuery.query(EquipmentTenderApplicationEntity.class, pageable,
+                    sqls, null);*/
             List<EquipmentTenderApplicationEntity> list = dataPage.getContent();
             List<EquipmentTenderApplicationVO> vos = new ArrayList<>();
             for (EquipmentTenderApplicationEntity entity : list) {

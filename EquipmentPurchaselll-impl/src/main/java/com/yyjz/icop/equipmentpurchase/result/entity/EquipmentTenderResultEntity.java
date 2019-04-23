@@ -75,6 +75,10 @@ public class EquipmentTenderResultEntity extends SuperMainEntity{
 	@Display("总金额")
 	@Column(name="total_money")
 	private BigDecimal totalMoney ;
+
+
+
+
 	public String getId() {
 		return this.id;
 	}

@@ -1,11 +1,12 @@
 package com.yyjz.icop.equipmentpurchase.result.service.extend;
 
+import com.alibaba.dubbo.common.utils.CollectionUtils;   //导入正确的包
+import com.yyjz.icop.database.util.ExceptionUtils;//导入正确的包
 import com.yyjz.icop.equipmentpurchase.result.vo.EquipmentTenderResultListSubVO;
 import com.yyjz.icop.equipmentpurchase.result.vo.EquipmentTenderResultVO;
 import com.yyjz.icop.excel.ExportExcelUtils;
 import com.yyjz.icop.excel.ImportExcel;
 import com.yyjz.icop.exception.BusinessException;
-import net.sf.cglib.core.CollectionUtils;
 import org.apache.lucene.util.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,17 +49,19 @@ public class EquipmentTenderResultServiceExtend extends EquipmentTenderResultSer
 		try {
 			Map<String, List<String>> errMap = new LinkedHashMap<>();//记录错误信息
 			exportList = importExcel.getDataList(EquipmentTenderResultListSubVO.class, errMap);
-
-			if(!errMap.isEmpty()){
-				for(String sKey:errMap.keySet()){
-					List<String> valueList=errMap.get(sKey);
-					//if(CollectionUtils.i)
+			if(CollectionUtils.isNotEmpty(exportList)){
+				if(!errMap.isEmpty()){
+					for (String sKey:errMap.keySet()){
+						List<String> valueList=errMap.get(sKey);
+						if(CollectionUtils.isNotEmpty(valueList)){
+							String errMsg=valueList.get(0);
+							throw  new BusinessException(sKey+errMsg);
+						}
+					}
 				}
 			}
-
-
 		} catch (Exception e) {
-			System.out.println(e);
+			ExceptionUtils.marsh(e);
 		}
 		return exportList;
 	}

@@ -28,7 +28,20 @@ public class EquipmentTenderResultListSubVO extends SuperSubVO{
 	private String specification ;
 	@Display("单价")
 	private BigDecimal unitPrice ;
-	
+
+
+//增加总金额字段
+	@Display("总金额")
+	private BigDecimal totalEquipment ;
+	public BigDecimal getTotalEquipment() {
+		return totalEquipment;
+	}
+
+	public void setTotalEquipment(BigDecimal totalEquipment) {
+		this.totalEquipment = totalEquipment;
+	}
+
+	//增加总金额字段
 	public String getId() {
 		return this.id;
 	}
