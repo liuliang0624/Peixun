@@ -44,7 +44,19 @@ public class EquipmentTenderResultVO extends SuperMainVO{
 	private String tenderName ;
 	@Display("总金额")
 	private BigDecimal totalMoney ;
-	
+
+
+	@Display("关联申请ID")
+	private String applyID ;
+
+	public String getApplyID() {
+		return applyID;
+	}
+
+	public void setApplyID(String applyID) {
+		this.applyID = applyID;
+	}
+
 	public String getId() {
 		return this.id;
 	}
@@ -105,7 +117,7 @@ public class EquipmentTenderResultVO extends SuperMainVO{
 	public void setTenderMethod(String tenderMethod) {
 		this.tenderMethod = tenderMethod;
 	}
-	@ReferSerialTransfer(referCode="EquipmentTender_Applicationlll")
+	@ReferSerialTransfer(referCode="EquipmentTender_Applicationlll") //此处参照
 	public String getTenderName() {
 		return this.tenderName;
 	}

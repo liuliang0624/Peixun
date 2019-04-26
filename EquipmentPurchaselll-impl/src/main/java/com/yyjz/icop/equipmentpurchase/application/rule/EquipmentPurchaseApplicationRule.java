@@ -12,19 +12,7 @@ public class EquipmentPurchaseApplicationRule implements IcopRule<EquipmentTende
         EquipmentTenderApplicationEntity entity = entitys[0];
         String myName = "二公司刘亮亮";
         entity.setMyName(myName);
-      /*  String tenderMethod = entity.getTenderMethod();
-        entity.setTenderMethod("公开招标");
-*/
-    /*    String tenderMethod = entity.getTenderMethod();
-        if (tenderMethod == "openTender") {
-            entity.setTenderMethod("公开招标");
-        }
-        if (tenderMethod == "InvitationTender") {
-            entity.setTenderMethod("邀请招标");
-        }
-        if (tenderMethod == "negotiation") {
-            entity.setTenderMethod("竞争性谈判");
-        }
-    }*/
+        //entity.setSelectedState("1");  //当单将据被选择时，将此单据的selectedState属性设置为1，表示已被选择
+
     }
 }

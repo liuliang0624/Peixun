@@ -47,6 +47,7 @@ public abstract class EquipmentTenderResultController {
 		try {
 			RegConfigVO findByCode=iRegConfigAPIService.findByCode(AppContext.getCurCompanyId(),"SeveralCompanies" );//抛异常
 			equipmentTenderResultVO.setParameter(findByCode.getRegValue()); //给参数赋值
+
 			EquipmentTenderResultVO backVO = equipmentTenderResultService.insert(equipmentTenderResultVO);
 			back.setBackData(backVO);
 			back.setBackMsg("新增成功");
@@ -64,11 +65,27 @@ public abstract class EquipmentTenderResultController {
 	 * @param equipmentTenderResultVO
 	 * @return
 	 */
+/*	@RequestMapping(value = "update")
+	@ResponseBody
+	public JsonBackData update(@RequestBody EquipmentTenderResultVO equipmentTenderResultVO) {
+		JsonBackData back = new JsonBackData();
+		try {
+			EquipmentTenderResultVO vo = equipmentTenderResultService.update(equipmentTenderResultVO);
+			back.setBackData(vo);
+			back.setBackMsg("更新成功");
+		} catch (BusinessException e) {
+			back.setSuccess(false);
+			back.setBackMsg("更新失败:"+e.getMessage());
+		}
+		return back;
+	}*/
+
 	@RequestMapping(value = "update")
 	@ResponseBody
 	public JsonBackData update(@RequestBody EquipmentTenderResultVO equipmentTenderResultVO) {
 		JsonBackData back = new JsonBackData();
 		try {
+
 			EquipmentTenderResultVO vo = equipmentTenderResultService.update(equipmentTenderResultVO);
 			back.setBackData(vo);
 			back.setBackMsg("更新成功");

@@ -157,6 +157,7 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             JSONObject obj = JSONObject.parseObject(condition); //此处condtion关联前台"onShow"的传参
             String companyId = null;
             String tenderArea = obj.getString("tenderArea"); //JSON字符串解析
+            String  selectedState=obj.getString("selectedState");//解析参照状态
 
             // 设置查询参数
             QuerySchema querySchema = new QuerySchema();
@@ -168,6 +169,7 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             List<SearchItem> itemList = new ArrayList<SearchItem>();
             SearchItem busiStateItem = new SearchItem();
             SearchItem busiStateItems = new SearchItem();
+            SearchItem busiStateItema= new SearchItem();
             busiStateItems.setField("dr");
             busiStateItems.setCompare(Compare.EQ.name());
             busiStateItems.setFieldtype(FieldType.INTEGER.name());
@@ -179,6 +181,12 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
             busiStateItem.setFieldtype(FieldType.STRING.name());
             busiStateItem.setData(tenderArea);
             itemList.add(busiStateItem);
+            //查找-参照框未被选择的 即selectedState="0"的数据
+            busiStateItema.setField("selected_state");
+            busiStateItema.setCompare(Compare.EQ.name());
+            busiStateItema.setFieldtype(FieldType.STRING.name());
+            busiStateItema.setData(0);
+            itemList.add(busiStateItema);
 
             // 处理检索字段
 //            if (StringUtils.isNotEmpty(searchText)) {
@@ -228,6 +236,7 @@ public class EquipmentTenderApplicationControllerExtend extends EquipmentTenderA
                 EquipmentTenderApplicationVO vo = new EquipmentTenderApplicationVO();
                 DataObjectUtils.copyEntityToVO(entity, vo);
                 vos.add(vo);
+
             }
             Page<EquipmentTenderApplicationVO> page = new PageImpl<>(vos, pageable, dataPage.getTotalElements());
             // 设置返回参数

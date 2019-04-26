@@ -25,7 +25,7 @@ public abstract class EquipmentTenderApplicationInsertActivity {
 	@Autowired
 	protected AddAuditinfoRule<EquipmentTenderApplicationEntity> addAuditinfoRule;
 	@Autowired
-	protected EquipmentPurchaseApplicationRule equipmentPurchaseApplicationRule;
+	protected EquipmentPurchaseApplicationRule equipmentPurchaseApplicationRule;//引入我的规则
 	/**
 	 * 引入附件公共rule
 	 */
