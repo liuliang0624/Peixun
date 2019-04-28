@@ -47,6 +47,7 @@ public abstract class EquipmentTenderResultController {
 		try {
 			RegConfigVO findByCode=iRegConfigAPIService.findByCode(AppContext.getCurCompanyId(),"SeveralCompanies" );//抛异常
 			equipmentTenderResultVO.setParameter(findByCode.getRegValue()); //给参数赋值
+			
 
 			EquipmentTenderResultVO backVO = equipmentTenderResultService.insert(equipmentTenderResultVO);
 			back.setBackData(backVO);
