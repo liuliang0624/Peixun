@@ -18,6 +18,7 @@ import com.yyjz.icop.exception.BusinessException;
 import com.yyjz.icop.metadata.core.data.JsonBackData;
 import com.yyjz.icop.pubapp.platform.query.QuerySchema;
 
+
 /**
  * <p>前台交互rest服务</p>
  * <p>@author ICOP  2019-04-15</p>
@@ -44,6 +45,7 @@ public abstract class EquipmentTenderResultController {
 	@ResponseBody
 	public JsonBackData insert(@RequestBody EquipmentTenderResultVO equipmentTenderResultVO) {
 		JsonBackData back = new JsonBackData();
+
 		try {
 			RegConfigVO findByCode=iRegConfigAPIService.findByCode(AppContext.getCurCompanyId(),"SeveralCompanies" );//抛异常
 			equipmentTenderResultVO.setParameter(findByCode.getRegValue()); //给参数赋值

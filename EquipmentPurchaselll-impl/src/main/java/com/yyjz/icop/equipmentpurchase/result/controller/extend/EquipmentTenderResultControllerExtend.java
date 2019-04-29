@@ -29,6 +29,7 @@ import com.yyjz.icop.metadata.core.data.JsonBackData;
 import com.yyjz.icop.exception.BusinessException;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
+import com.yyjz.icop.equipmentpurchase.result.rule.ErrorMap; //导入错误消息提示
 
 /**
  * <p>前台交互rest服务扩展</p>
@@ -126,11 +127,12 @@ public class EquipmentTenderResultControllerExtend extends EquipmentTenderResult
     @ResponseBody
     public JsonBackData editImportExcel(@RequestParam(value = "file") MultipartFile file) {
         JsonBackData back = new JsonBackData();
+        ErrorMap errorMap=new ErrorMap();
         try {
             /*导出的时候的起始列跟表格编号 都是以0开始，3表示从第4行开始解析*/
             ImportExcel importExcel = new ImportExcel(file, 3, 0);
-            List<EquipmentTenderResultListSubVO> exportList = equipmentTenderResultServiceExtend.importExcel(importExcel);
-            back.setBackData(exportList);
+            errorMap = equipmentTenderResultServiceExtend.importExcel(importExcel);
+            back.setBackData(errorMap);
             back.setSuccess(true);
             back.setBackMsg("导入成功");
         } catch (Exception e) {
