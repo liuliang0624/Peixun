@@ -54,14 +54,22 @@ public class EquipmentTenderResultServiceExtend extends EquipmentTenderResultSer
         try {
 
             exportList = importExcel.getDataList(EquipmentTenderResultListSubVO.class, errMap);
+            List<String>  stringList= new ArrayList<>();
             if (CollectionUtils.isNotEmpty(exportList)) {
                 if (!errMap.isEmpty()) {
+
                     for (String sKey : errMap.keySet()) {
                         List<String> valueList = errMap.get(sKey);
                         if (CollectionUtils.isNotEmpty(valueList)) {
                             String errMsg = valueList.get(0);
                             errorMap.setErrorNumbers(errMap.size());
-                            throw new BusinessException(sKey + errMsg);
+                            String str=new String();
+                            str=sKey+errMsg;
+                            stringList.add(str);
+                            errorMap.setStringList(stringList);
+                            errorMap.setErrorDetail(stringList);
+
+                           // throw new BusinessException(sKey + errMsg);
                         }
                     }
                 }
